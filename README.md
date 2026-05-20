@@ -24,3 +24,10 @@
 1. Клонируйте репозиторий:
    ```bash
    git clone https://github.com/ВАШ_НИК/online-booking-db-variant-12.git
+## 🛠 Уровень доступа к данным (DAL)
+Архитектура построена на паттерне **Repository**. Все SQL-запросы инкапсулированы, используется PDO с отключённой эмуляцией подготовленных выражений.
+
+### Установка
+1. `cp config.example.php config.php`
+2. Заполните данные БД в `config.php`
+3. Запустите демо: `php -S localhost:8000` и откройте `http://localhost:8000/demo.php`
