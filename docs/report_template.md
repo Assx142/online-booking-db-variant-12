@@ -41,3 +41,9 @@
 1. Официальная документация MySQL 8.0 — https://dev.mysql.com/doc/
 2. К. Дж. Дейт «Введение в системы баз данных»
 3. Материалы курса «Проектирование БД»
+
+1. Архитектура: схема взаимодействия demo.php → Database → AbstractRepository → ConcreteRepositories
+2. Диаграмма классов: используйте PlantUML или нарисуйте в draw.io (Database (1) → AbstractRepository (1) → Client/AppointmentRepository)
+3. Методы репозиториев: таблица с названием метода и описанием
+4. Безопасность: prepare()/execute(), whitelist для ORDER BY, кастинг LIMIT, отсутствие конкатенации
+5. Транзакции: пример beginTransaction() → try { insert } catch { rollBack() } → commit()
