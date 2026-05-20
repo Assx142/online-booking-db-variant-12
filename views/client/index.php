@@ -30,3 +30,25 @@
     </tbody>
 </table>
 <?php require __DIR__ . '/../partials/pagination.php'; endif; ?>
+<div class="d-flex justify-content-between mb-3">
+    <h2>👤 <?= $this->e($client['last_name']) ?> <?= $this->e($client['first_name']) ?></h2>
+    <a href="index.php?entity=client&action=list" class="btn btn-secondary">← Назад</a>
+</div>
+<div class="card mb-3">
+    <div class="card-body">
+        <p><b>Телефон:</b> <?= $this->e($client['phone']) ?></p>
+        <p><b>Email:</b> <?= $client['email'] ? $this->e($client['email']) : '-' ?></p>
+        <p><b>Дата рождения:</b> <?= $client['birth_date'] ? date('d.m.Y', strtotime($client['birth_date'])) : '-' ?></p>
+    </div>
+</div>
+<?php if ($credit): ?>
+<div class="card mb-3 <?= $credit['credit_score'] < 600 ? 'border-danger' : 'border-success' ?>">
+    <div class="card-header <?= $credit['credit_score'] < 600 ? 'bg-danger text-white' : 'bg-success text-white' ?>">📊 Кредитная история</div>
+    <div class="card-body">
+        <p><b>Скоринг:</b> <?= $credit['credit_score'] ?> баллов</p>
+        <p><b>Просрочки:</b> <?= $credit['has_defaults'] ? 'Да' : 'Нет' ?></p>
+        <p><b>Обновлено:</b> <?= date('d.m.Y', strtotime($credit['last_update'])) ?></p>
+    </div>
+</div>
+<?php endif; ?>
+<div class="alert alert-info">📅 Всего записей: <b><?= $appointmentsCount ?></b></div>
